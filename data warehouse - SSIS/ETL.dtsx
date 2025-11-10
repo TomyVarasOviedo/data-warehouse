@@ -1,0 +1,956 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/10/2025 10:07:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-S274IDT1"
+  DTS:CreatorName="LAPTOP-S274IDT1\tomas"
+  DTS:DTSID="{D979B0D6-FDEB-4332-8AB2-244B2F897C82}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{7D6D8B55-448A-4ECC-A2C8-D1D98A9B866D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archivo .csv Conciertos]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Archivo .csv con conciertos de spotify"
+      DTS:DTSID="{E582D0DB-2764-400D-B8B8-100534C43CC8}"
+      DTS:ObjectName="Archivo .csv Conciertos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="22538"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\tomas\Desktop\data-warehouse\spotify_conciertos.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="spotify_track_uri"
+              DTS:DTSID="{A81F8AA1-8B55-423A-9F82-78268F7DC2F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="artist_name"
+              DTS:DTSID="{81116EEF-A46A-422D-9A24-7BF13F81E10E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id_concierto"
+              DTS:DTSID="{F102FF0C-780F-4E77-998F-FC7D13CBF6A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nombre_concierto"
+              DTS:DTSID="{1E8DAB4F-71C9-4C48-B608-C081C6C03544}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pais_concierto"
+              DTS:DTSID="{DDBA0341-8F52-41A7-970E-D97522D953A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="capacidad"
+              DTS:DTSID="{C4F9CFCF-09B9-4EB7-80C4-8CFE2B771EF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cantidad_publico"
+              DTS:DTSID="{44BDA715-A680-4925-9C4F-CFBE0B690495}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cantidad_entradas_vendidas"
+              DTS:DTSID="{81D85D1A-3CF4-4D76-80C6-B034E78F2F38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fecha"
+              DTS:DTSID="{895291E9-95B3-4E59-B5C8-D0FF48827193}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archivo Spotify principal]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Archivo de spotify principal"
+      DTS:DTSID="{8FF3CCBE-F107-4028-973D-3CCE46096C96}"
+      DTS:ObjectName="Archivo Spotify principal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="22538"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\tomas\Desktop\data-warehouse\spotify_history.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="spotify_track_uri"
+              DTS:DTSID="{657CEF27-8D9D-47BC-AF49-63730AA07645}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ts"
+              DTS:DTSID="{157C985F-F62A-4859-B516-46B257807CFC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="platform"
+              DTS:DTSID="{ECE86A9C-01D8-4566-8E58-8BC6EBF49AF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ms_played"
+              DTS:DTSID="{9E9FFBE9-E5A7-42DF-85FF-2F2F8E0289EA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="track_name"
+              DTS:DTSID="{0317F06B-DB28-4AFB-AE9D-7775B424C40C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="artist_name"
+              DTS:DTSID="{67D94AB0-0E05-4A3F-8785-B60874AFDE5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="album_name"
+              DTS:DTSID="{07DC27E9-F582-4514-ABFF-7992196A5A2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="reason_start"
+              DTS:DTSID="{CE62EF9A-364E-4987-972C-B07CAB1DEE3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="reason_end"
+              DTS:DTSID="{D973FC80-A4D4-4C03-9B2C-75A9DF638178}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="shuffle"
+              DTS:DTSID="{450700A8-CA56-4AA7-A243-580D16E61B9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="skipped"
+              DTS:DTSID="{4C531CE3-D1C0-49FC-8330-6F632E1D8A45}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extraccion CSV"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{10729C4B-9B15-4FCB-B942-28A41EA1F10D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extraccion CSV"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extraccion CSV\Spotify Concierto"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="22538"
+              name="Spotify Concierto"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion CSV\Spotify Concierto.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Archivo .csv Conciertos]"
+                  connectionManagerRefId="Package.ConnectionManagers[Archivo .csv Conciertos]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[spotify_track_uri]"
+                      codePage="65001"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[spotify_track_uri]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[spotify_track_uri]"
+                      name="spotify_track_uri"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[artist_name]"
+                      codePage="65001"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[artist_name]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[artist_name]"
+                      name="artist_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[id_concierto]"
+                      codePage="65001"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[id_concierto]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[id_concierto]"
+                      name="id_concierto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[nombre_concierto]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[nombre_concierto]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[nombre_concierto]"
+                      name="nombre_concierto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[pais_concierto]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[pais_concierto]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[pais_concierto]"
+                      name="pais_concierto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[capacidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[capacidad]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[capacidad]"
+                      name="capacidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[cantidad_publico]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[cantidad_publico]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[cantidad_publico]"
+                      name="cantidad_publico"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[cantidad_entradas_vendidas]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[cantidad_entradas_vendidas]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[cantidad_entradas_vendidas]"
+                      name="cantidad_entradas_vendidas"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[fecha]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[fecha]"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[spotify_track_uri]"
+                      codePage="65001"
+                      dataType="text"
+                      name="spotify_track_uri" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[artist_name]"
+                      codePage="65001"
+                      dataType="text"
+                      name="artist_name" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[id_concierto]"
+                      codePage="65001"
+                      dataType="text"
+                      name="id_concierto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[nombre_concierto]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="nombre_concierto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[pais_concierto]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="pais_concierto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[capacidad]"
+                      dataType="i4"
+                      name="capacidad" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[cantidad_publico]"
+                      dataType="numeric"
+                      name="cantidad_publico"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[cantidad_entradas_vendidas]"
+                      dataType="numeric"
+                      name="cantidad_entradas_vendidas"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Output].ExternalColumns[fecha]"
+                      dataType="dbDate"
+                      name="fecha" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion CSV\Spotify Concierto.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion CSV\Spotify Principal"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="22538"
+              name="Spotify Principal"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion CSV\Spotify Principal.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Archivo Spotify principal]"
+                  connectionManagerRefId="Package.ConnectionManagers[Archivo Spotify principal]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[spotify_track_uri]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[spotify_track_uri]"
+                      length="255"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[spotify_track_uri]"
+                      name="spotify_track_uri"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[ts]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[ts]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[ts]"
+                      name="ts"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[platform]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[platform]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[platform]"
+                      name="platform"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[ms_played]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[ms_played]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[ms_played]"
+                      name="ms_played"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[track_name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[track_name]"
+                      length="255"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[track_name]"
+                      name="track_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[artist_name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[artist_name]"
+                      length="255"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[artist_name]"
+                      name="artist_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[album_name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[album_name]"
+                      length="255"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[album_name]"
+                      name="album_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[reason_start]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[reason_start]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[reason_start]"
+                      name="reason_start"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[reason_end]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[reason_end]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[reason_end]"
+                      name="reason_end"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[shuffle]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[shuffle]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[shuffle]"
+                      name="shuffle"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[skipped]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[skipped]"
+                      length="50"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].Columns[skipped]"
+                      name="skipped"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[spotify_track_uri]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="spotify_track_uri" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[ts]"
+                      dataType="dbTimeStamp"
+                      name="ts" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[platform]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[ms_played]"
+                      dataType="numeric"
+                      name="ms_played"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[track_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="track_name" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[artist_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="artist_name" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[album_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="album_name" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[reason_start]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="reason_start" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[reason_end]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="reason_end" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[shuffle]"
+                      dataType="bool"
+                      name="shuffle" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Output].ExternalColumns[skipped]"
+                      dataType="bool"
+                      name="skipped" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion CSV\Spotify Principal.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Extraccion CSV"
+          TopLeft="221,141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extraccion CSV">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Extraccion CSV\Spotify Principal"
+          TopLeft="115.5,146.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Extraccion CSV\Spotify Concierto"
+          TopLeft="121,239" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
